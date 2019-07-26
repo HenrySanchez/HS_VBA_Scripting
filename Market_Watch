@@ -1,0 +1,36 @@
+Attribute VB_Name = "Module3"
+Sub MarketWatch()
+
+
+    Cells(1, 9).Value = "Ticker"
+    Cells(1, 10).Value = "Total Stock Value"
+    
+    Dim totalStockValue As Double
+    
+    lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+    
+    
+    For i = 2 To lastRow
+    
+        If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+            
+            totalStockValue = Cells(i, 7).Value + totalStockValue
+            
+            Range("J" & j + 2).Value = totalStockValue
+            
+            Range("I" & j + 2).Value = Cells(i, 1).Value
+            
+            totalStockValue = 0
+            
+            j = j + 1
+            
+            
+        Else
+            totalStockValue = Cells(i, 7).Value + totalStockValue
+    
+    End If
+    Next i
+    
+
+    
+ End Sub
